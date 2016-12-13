@@ -11,42 +11,8 @@ import {
   TouchableHighlight,
   View,
 } from 'react-native';
-import ToastAndroid from './js/MyToastAndroid';
-class HelloWorld extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { myButtonOpacity: 1, };
-    }
 
-    _onPressButton() {
-        console.log("You tapped the button!");
-        alert("clicked");
-    }
-
-    render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.hello}>Hello,react-native android World!</Text>
-		<Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}} style={styles.image} >
-          <Text style={styles.inner}>i am inner text</Text>
-        </Image>
-        <TouchableHighlight onPress={this._onPressButton}>
-          <Text>Button</Text>
-        </TouchableHighlight>
-        
-      </View>
-    )
-  }
-    componentDidMount(){
-      // this.setTimeout(
-      //     () => { console.log('I do not leak!'); },
-      //     500
-      // );
-        ToastAndroid.toast('w',0);
-  }
-
-}
-class HelloWorld1 extends React.Component {
+export default class MAnimated extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -101,5 +67,3 @@ var styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('HelloWorld', () => HelloWorld);
-AppRegistry.registerComponent('HelloWorld1', () => HelloWorld1);

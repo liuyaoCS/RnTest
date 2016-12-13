@@ -1,4 +1,4 @@
-package com.ly.rntest;
+package com.ly.rntest.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,8 +9,9 @@ import com.facebook.react.ReactRootView;
 import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
+import com.ly.rntest.BuildConfig;
 
-public class MyReactAnimActivity extends Activity implements DefaultHardwareBackBtnHandler {
+public class ReactLayoutAnimActivity extends Activity implements DefaultHardwareBackBtnHandler {
     private ReactRootView mReactRootView;
     private ReactInstanceManager mReactInstanceManager;
 
@@ -28,7 +29,7 @@ public class MyReactAnimActivity extends Activity implements DefaultHardwareBack
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 //.setUseOldBridge(true) // uncomment this line if your app crashes
                 .build();
-        mReactRootView.startReactApplication(mReactInstanceManager, "HelloWorld1", null);
+        mReactRootView.startReactApplication(mReactInstanceManager, "MLayoutAnimation", null);
 
         setContentView(mReactRootView);
     }

@@ -8,17 +8,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.ly.rntest.MainActivity">
+    tools:context="com.ly.rntest.activity.MainActivity">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/rn"
+        android:id="@+id/rn_base"
         android:text="Hello RN!" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rn"
-        android:id="@+id/rn_animation"
+        android:layout_below="@id/rn_base"
+        android:id="@+id/rn_animated"
         android:text="RN anim" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rn_animated"
+        android:id="@+id/rn_layout_animation"
+        android:text="RN layout anim" />
 </RelativeLayout>

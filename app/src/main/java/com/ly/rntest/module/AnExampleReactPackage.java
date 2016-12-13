@@ -1,4 +1,4 @@
-package com.ly.rntest;
+package com.ly.rntest.module;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;

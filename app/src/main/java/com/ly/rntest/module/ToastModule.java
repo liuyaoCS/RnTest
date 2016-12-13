@@ -1,4 +1,4 @@
-package com.ly.rntest;
+package com.ly.rntest.module;
 
 import android.widget.Toast;
 
@@ -21,7 +21,7 @@ public class ToastModule extends ReactContextBaseJavaModule {
   }
   @Override
   public String getName() {
-    return "ToastAndroid";
+    return "MToastAndroid";
   }
   @Override
   public Map<String, Object> getConstants() {
