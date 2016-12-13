@@ -1,10 +1,15 @@
 package com.ly.rntest.activity;
 
 
-public class ReactBaseActivity extends BaseActivity  {
+import com.facebook.react.ReactActivity;
 
+import javax.annotation.Nullable;
+
+public class ReactBaseActivity extends ReactActivity {
+
+    @Nullable
     @Override
-    protected String getModuleName() {
+    protected String getMainComponentName() {
         return "MBase";
     }
 }

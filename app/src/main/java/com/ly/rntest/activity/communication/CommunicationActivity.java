@@ -1,10 +1,14 @@
 package com.ly.rntest.activity.communication;
 
 import android.content.Intent;
+
+import com.facebook.react.ReactActivity;
 import com.ly.rntest.activity.BaseActivity;
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class CommunicationActivity extends BaseActivity {
+import javax.annotation.Nullable;
+
+public class CommunicationActivity extends ReactActivity {
     //构建一个阻塞的单一数据的队列
     public static ArrayBlockingQueue<String> mQueue = new ArrayBlockingQueue<String>(1);
     /**
@@ -28,8 +32,9 @@ public class CommunicationActivity extends BaseActivity {
         }
     }
 
+    @Nullable
     @Override
-    protected String getModuleName() {
+    protected String getMainComponentName() {
         return "MCommunication";
     }
 }

@@ -14,6 +14,10 @@ import com.ly.rntest.app.MainApplication;
 import com.ly.rntest.module.intent.IntentReactPackage;
 import com.ly.rntest.module.toast.MToastReactPackage;
 
+/**
+ * 已废弃，请用自带的ReactActivity
+ */
+@Deprecated
 public abstract class BaseActivity extends Activity implements DefaultHardwareBackBtnHandler {
 
     private ReactInstanceManager mReactInstanceManager;

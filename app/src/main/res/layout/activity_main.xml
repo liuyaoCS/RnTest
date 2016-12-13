@@ -33,4 +33,10 @@
         android:layout_below="@id/rn_layout_animation"
         android:id="@+id/rn_communication"
         android:text="RN communication" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rn_communication"
+        android:id="@+id/rn_net"
+        android:text="RN net" />
 </RelativeLayout>

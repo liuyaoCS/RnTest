@@ -1,11 +1,15 @@
 package com.ly.rntest.activity;
 
 
-public class ReactAnimActivity extends BaseActivity {
+import com.facebook.react.ReactActivity;
 
+import javax.annotation.Nullable;
+
+public class ReactAnimActivity extends ReactActivity {
+
+    @Nullable
     @Override
-    protected String getModuleName() {
+    protected String getMainComponentName() {
         return "MAnimated";
     }
-
 }
