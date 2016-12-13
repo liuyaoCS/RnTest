@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.ly.rntest.R;
+import com.ly.rntest.activity.communication.CommunicationActivity;
 
 public class MainActivity extends Activity {
 
@@ -29,6 +30,12 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this,ReactLayoutAnimActivity.class));
+            }
+        });
+        findViewById(R.id.rn_communication).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,CommunicationActivity.class));
             }
         });
     }

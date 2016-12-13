@@ -1,4 +1,4 @@
-package com.ly.rntest.module;
+package com.ly.rntest.module.toast;
 
 import android.widget.Toast;
 

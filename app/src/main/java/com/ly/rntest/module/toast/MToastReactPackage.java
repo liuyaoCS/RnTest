@@ -1,4 +1,4 @@
-package com.ly.rntest.module;
+package com.ly.rntest.module.toast;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class AnExampleReactPackage implements ReactPackage {
+public class MToastReactPackage implements ReactPackage {
 
   @Override
   public List<Class<? extends JavaScriptModule>> createJSModules() {

@@ -10,7 +10,9 @@ import {
 import MBase from './js/base.js'
 import MAnimated from './js/animated.js'
 import MLayoutAnimation from './js/layoutAnimation.js'
+import MCommunication from './js/communication.js'
 
 AppRegistry.registerComponent('MBase', () => MBase);
 AppRegistry.registerComponent('MAnimated', () => MAnimated);
 AppRegistry.registerComponent('MLayoutAnimation', () => MLayoutAnimation);
+AppRegistry.registerComponent('MCommunication', () => MCommunication);

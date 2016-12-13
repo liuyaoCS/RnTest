@@ -12,7 +12,7 @@ import {
   View,
   ToastAndroid
 } from 'react-native';
-
+import Toast from './lib/Toast';
 export  default class MBase extends React.Component {
     constructor(props) {
         super(props);
@@ -21,7 +21,8 @@ export  default class MBase extends React.Component {
 
     _onPressButton() {
         console.log("You tapped the button!");
-        ToastAndroid.show('You tapped the button!', ToastAndroid.LONG);
+        //ToastAndroid.show('You tapped the button!', ToastAndroid.LONG);
+        Toast.show('You tapped the button from js!', Toast.LONG);
     }
 
     render() {
