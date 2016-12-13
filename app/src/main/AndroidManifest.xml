@@ -20,6 +20,10 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".activity.ReactTestActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".activity.ReactBaseActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -43,7 +47,7 @@
             android:name=".activity.communication.ThreeActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.NetActivity"
+        <activity android:name=".activity.ReactNetActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
     </application>

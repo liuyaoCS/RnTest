@@ -8,12 +8,24 @@ import android.view.View;
 import com.ly.rntest.R;
 import com.ly.rntest.activity.communication.CommunicationActivity;
 
+/**
+ * 加入新项流程
+ * 1 在MainActivity中注册，在activity_main中注册
+ * 2 创建**Activity，在AndroidManifest中注册
+ * 3 创建**.js,导出，并在index.android.js中注册
+ */
 public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        findViewById(R.id.rn_test).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ReactTestActivity.class));
+            }
+        });
         findViewById(R.id.rn_base).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,7 +53,7 @@ public class MainActivity extends Activity {
         findViewById(R.id.rn_net).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,NetActivity.class));
+                startActivity(new Intent(MainActivity.this,ReactNetActivity.class));
             }
         });
     }

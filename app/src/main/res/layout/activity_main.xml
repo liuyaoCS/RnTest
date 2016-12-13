@@ -13,8 +13,14 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/rn_test"
+        android:text="RN test" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rn_test"
         android:id="@+id/rn_base"
-        android:text="Hello RN!" />
+        android:text="RN base" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
