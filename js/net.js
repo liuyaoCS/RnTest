@@ -1,6 +1,3 @@
-/**
-* react native 只能加载https的图片？！
-*/
 'use strict';
 import React, { Component } from 'react';
 import {
@@ -67,7 +64,7 @@ export default class MNet extends Component {
     return (
       <View style={styles.container}>
         <Image
-          source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
+          source={{uri: movie.posters.thumbnail}}
           style={styles.thumbnail}
         />
         <View style={styles.rightContainer}>

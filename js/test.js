@@ -8,29 +8,43 @@ import {
   View,
   Image,
   DrawerLayoutAndroid,
-  ListView,
+  ListView, ScrollView
 } from 'react-native';
-
-
 
 export default class MTest extends Component {
 
+  // 构造
+    constructor(props) {
+      super(props);
+      // 初始状态
+        this.state = {};
+        this.a=new Array();
+        this.a['id']=0;
+        this.a['name']="ly";
 
-  render() {
-    return (
-    <Image source={{uri:'http://a.hiphotos.baidu.com/image/pic/item/e7cd7b899e510fb3a78c787fdd33c895d0430c44.jpg'}}
-    style={{width:400,height:600}} >
-    <Text welcome>Inside</Text>
-    </Image>
+        this.b=new Array();
+        this.ok=true;
+
+        this.json=[
+            {name:'ly',index:0},
+            {name:'ll',index:1}
+        ];
+
+    }
+
+    render() {
+      return (
+          <View alignItems="center" >
+              {
+                  this.json.map(
+                      (item) => <Text key={item.index}>{item.name}</Text>
+                  )
+              }
+          </View>
 
 
-
-        );
-
-
-
-
-  }
+       );
+    }
 }
 
 const styles = StyleSheet.create({

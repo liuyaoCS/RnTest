@@ -56,5 +56,11 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(MainActivity.this,ReactNetActivity.class));
             }
         });
+        findViewById(R.id.rn_update).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ReactUpdateActivity.class));
+            }
+        });
     }
 }

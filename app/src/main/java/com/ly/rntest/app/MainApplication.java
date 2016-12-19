@@ -8,6 +8,7 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.ly.rntest.BuildConfig;
+import com.ly.rntest.activity.MainActivity;
 import com.ly.rntest.module.intent.IntentReactPackage;
 import com.ly.rntest.module.toast.MToastReactPackage;
 
@@ -21,7 +22,6 @@ import java.util.List;
 public class MainApplication extends Application implements ReactApplication {
     private ReactNativeHost mReactNativeHost;
     private ReactInstanceManager mReactInstanceManager;
-
     /**
      * 已由内部维护，不建议单独使用
      */
@@ -63,7 +63,8 @@ public class MainApplication extends Application implements ReactApplication {
             protected List<ReactPackage> getPackages() {
                 return Arrays.asList(new MainReactPackage(),
                         new MToastReactPackage(),
-                        new IntentReactPackage());
+                        new IntentReactPackage()
+                      );
             }
         };
         mReactInstanceManager=mReactNativeHost.getReactInstanceManager();

@@ -2,6 +2,7 @@ package com.ly.rntest.activity;
 
 
 import com.facebook.react.ReactActivity;
+import com.ly.rntest.R;
 
 import javax.annotation.Nullable;
 
@@ -12,4 +13,5 @@ public class ReactTestActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "MTest";
     }
+
 }
