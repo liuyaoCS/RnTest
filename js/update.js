@@ -11,7 +11,7 @@ render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-         嗨，我是 Douban 2.0 版本 ！
+         嗨，我是 Douban 3.0 版本 ！
          </Text>
       </View>
     );

@@ -2,11 +2,14 @@ package com.ly.rntest.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.ly.rntest.R;
 import com.ly.rntest.activity.communication.CommunicationActivity;
+import com.ly.rntest.util.PermissionUtil;
 
 /**
  * 加入新项流程
@@ -62,5 +65,34 @@ public class MainActivity extends Activity {
                 startActivity(new Intent(MainActivity.this,ReactUpdateActivity.class));
             }
         });
+        if(PermissionUtil.hasReadExternalStoragePermission(this)){
+            Log.i("ly","has ExternalStoragePermission");
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode){
+            case PermissionUtil.REQUEST_READ_EXTERNAL_STORAGE:
+                if(grantResults.length>0) {
+                    if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                        Log.i("ly","success get permission");
+
+                    } else {
+                        Log.i("ly","not get permission");
+
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        System.exit(0);
     }
 }

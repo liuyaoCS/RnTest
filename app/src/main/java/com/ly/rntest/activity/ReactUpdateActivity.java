@@ -9,6 +9,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import com.facebook.react.cxxbridge.JSCJavaScriptExecutor;
 import com.facebook.react.cxxbridge.JavaScriptExecutor;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
+import com.ly.rntest.util.FileUtil;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
@@ -39,9 +41,10 @@ public class ReactUpdateActivity extends ReactActivity {
 
     private static final String TAG = "ly";
 
-    public static final String JS_BUNDLE_REMOTE_URL = "https://raw.githubusercontent.com/fengjundev/React-Native-Remote-Update/master/remote/index.android.bundle";
+    public static final String JS_BUNDLE_REMOTE_URL = "http://192.168.65.77:8080/JavawebTest/ResponseTest";
     public static final String JS_BUNDLE_LOCAL_FILE = "index.android.bundle";
-    public static final String JS_BUNDLE_LOCAL_PATH = Environment.getExternalStorageDirectory().toString() + File.separator + JS_BUNDLE_LOCAL_FILE;
+    public static final String JS_BUNDLE_LOCAL_PATH = Environment.getExternalStorageDirectory().toString()
+            + File.separator + JS_BUNDLE_LOCAL_FILE;
 
     private ReactInstanceManager mReactInstanceManager;
     private ReactRootView mReactRootView;
@@ -59,8 +62,16 @@ public class ReactUpdateActivity extends ReactActivity {
         super.onCreate(savedInstanceState);
 
         initDownloadManager();
-        updateBundle();
+
         mReactInstanceManager=getReactInstanceManager();
+        Handler h=new Handler();
+        h.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                updateBundle();
+            }
+        },1000);
+
     }
 
     private void initDownloadManager() {
@@ -69,13 +80,6 @@ public class ReactUpdateActivity extends ReactActivity {
     }
 
 
-    public static String getJsBundleLocalFile() {
-        return JS_BUNDLE_LOCAL_PATH;
-
-//        String jsBundleFile = getFilesDir().getAbsolutePath() + "/index.android.bundle";
-//        File file = new File(jsBundleFile);
-//        return file != null && file.exists() ? jsBundleFile : null;
-    }
 
     @Override
     protected void onDestroy() {
@@ -89,9 +93,9 @@ public class ReactUpdateActivity extends ReactActivity {
         // is the newest , we do not need to update
 
         File file = new File(JS_BUNDLE_LOCAL_PATH);
-        if(file != null && file.exists()){
-            Log.i(TAG, "newest bundle exists !");
-            return;
+        if(file.exists()){
+            FileUtil.deleteFile(file);
+            Log.i(TAG, "delete old version");
         }
 
         //Toast.makeText(BaseReactActivity.this, "Start downloading update", Toast.LENGTH_SHORT).show();
@@ -118,7 +122,7 @@ public class ReactUpdateActivity extends ReactActivity {
 
     private void onJSBundleLoadedFromServer() {
         File file = new File(JS_BUNDLE_LOCAL_PATH);
-        if(file == null || !file.exists()){
+        if(!file.exists()){
             Log.i(TAG, "download error, check URL or network state");
             return;
         }
@@ -126,23 +130,23 @@ public class ReactUpdateActivity extends ReactActivity {
         Log.i(TAG, "download success, reload js bundle");
 
         Toast.makeText(ReactUpdateActivity.this, "Downloading complete", Toast.LENGTH_SHORT).show();
-        try {
-            Class<?> RIManagerClazz = mReactInstanceManager.getClass();
-            Method method = RIManagerClazz.getDeclaredMethod("recreateReactContextInBackground",
-                    JavaScriptExecutor.class, JSBundleLoader.class);
-            method.setAccessible(true);
-            method.invoke(mReactInstanceManager,
-                    new JSCJavaScriptExecutor.Factory(JSCConfig.EMPTY.getConfigMap()),
-                    JSBundleLoader.createFileLoader(JS_BUNDLE_LOCAL_PATH));
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Class<?> RIManagerClazz = mReactInstanceManager.getClass();
+//            Method method = RIManagerClazz.getDeclaredMethod("recreateReactContextInBackground",
+//                    JavaScriptExecutor.class, JSBundleLoader.class);
+//            method.setAccessible(true);
+//            method.invoke(mReactInstanceManager,
+//                    new JSCJavaScriptExecutor.Factory(JSCConfig.EMPTY.getConfigMap()),
+//                    JSBundleLoader.createFileLoader(JS_BUNDLE_LOCAL_PATH));
+//        } catch (NoSuchMethodException e) {
+//            e.printStackTrace();
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        } catch (InvocationTargetException e) {
+//            e.printStackTrace();
+//        } catch (IllegalArgumentException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override

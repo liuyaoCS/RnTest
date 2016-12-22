@@ -1,6 +1,7 @@
 package com.ly.rntest.app;
 
 import android.app.Application;
+import android.os.Environment;
 
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactInstanceManager;
@@ -12,6 +13,7 @@ import com.ly.rntest.activity.MainActivity;
 import com.ly.rntest.module.intent.IntentReactPackage;
 import com.ly.rntest.module.toast.MToastReactPackage;
 
+import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,14 +23,16 @@ import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
     private ReactNativeHost mReactNativeHost;
-    private ReactInstanceManager mReactInstanceManager;
-    /**
-     * 已由内部维护，不建议单独使用
-     */
-    @Deprecated
-    public ReactInstanceManager getReactInstanceManager() {
-        return mReactInstanceManager;
-    }
+    public static final String JS_BUNDLE_LOCAL_FILE = "index.android.bundle";
+    public static final String JS_BUNDLE_LOCAL_PATH = Environment.getExternalStorageDirectory().toString() + File.separator + JS_BUNDLE_LOCAL_FILE;
+
+//    /**
+//     * 已由内部维护，不建议单独使用
+//     */
+//    @Deprecated
+//    public ReactInstanceManager getReactInstanceManager() {
+//        return mReactInstanceManager;
+//    }
 
     @Override
     public void onCreate() {
@@ -51,7 +55,7 @@ public class MainApplication extends Application implements ReactApplication {
 
             @Override
             protected String getJSBundleFile() {
-                return super.getJSBundleFile();
+                return JS_BUNDLE_LOCAL_PATH;
             }
 
             @Override
@@ -67,7 +71,6 @@ public class MainApplication extends Application implements ReactApplication {
                       );
             }
         };
-        mReactInstanceManager=mReactNativeHost.getReactInstanceManager();
     }
 
     @Override
